@@ -17,6 +17,7 @@ nav {
 .right ul {
     display: flex;
     gap: 18px;
+    margin: 0px 12px;
 }
 
 .right ul li {
@@ -50,7 +51,8 @@ nav {
 
 .first span {
     font-size: 50px;
-    font-family: sans-serif
+    font-family: sans-serif;
+    margin: 0px 4px 0px 34px
 }
 
 .first img {
@@ -89,6 +91,10 @@ nav {
     font-family: 'Segoe UI', sans-serif;
     font-weight: 400;
     font-size: 26px;
+}
+
+.list {
+    display: none;
 }
 
 .sec-logo {
@@ -213,13 +219,25 @@ nav {
         gap: 30px 28px;
     }
 
-    .right {
+    .list {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0px 8px;
+    }
+
+    .list:hover{
+        cursor: pointer;
+    }
+
+    .right>ul {
         display: none;
     }
 
     header {
         margin: 20px 10px;
     }
+
     .second {
         display: flex;
         align-items: center;
