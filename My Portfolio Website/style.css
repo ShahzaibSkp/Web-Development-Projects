@@ -560,7 +560,7 @@ th {
     font-size: 18px;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
-    padding: 30px 2px;
+    padding: 30px;
 }
 
 @media screen and (max-width: 1020px) {
@@ -677,4 +677,10 @@ th {
         width: 160px;
         top: -41px;
     }
+
+    .end>h3 {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
 }
