@@ -647,6 +647,10 @@ th {
         display: block;
     }
 
+    .list:hover{
+        cursor: pointer;
+    }
+
     .container {
         max-width: 90vw;
         flex-direction: column;
