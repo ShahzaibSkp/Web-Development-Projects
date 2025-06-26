@@ -1,0 +1,13 @@
+<svg width="200" height="80" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red Circle -->
+  <circle cx="30" cy="60" r="15" fill="red" />
+  <!-- Green Circle -->
+  <circle cx="45" cy="60" r="15" fill="green" />
+  <!-- Blue Circle -->
+  <circle cx="37.5" cy="45" r="15" fill="blue" />
+
+  <!-- Text -->
+  <text x="70" y="65" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="22" fill="#ffffff">
+    SHAHZAIB AFZAL
+  </text>
+</svg>
