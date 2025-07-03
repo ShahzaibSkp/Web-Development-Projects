@@ -34,9 +34,12 @@ This project helped me understand how real-world websites are built and how smal
 ## 📁 Project Structure
 
 Portfolio-Website/
-├── index.html # Main structure
-├── style.css # Styling and layout
-├── Assets/ # Logo and images used
+├── index.html        # Main website structure
+├── style.css         # Styling and layout
+├── Assets/           # Folder containing images and logos
+│   ├── logo.png
+│   └── other-assets
+└── README.md         # Project details
 
 ---
 
