@@ -69,6 +69,12 @@ body {
     list-style: none;
 }
 
+.right li:hover {
+    text-decoration: underline;
+    text-decoration-color: aqua;
+    text-decoration-thickness: 3px;
+}
+
 .right a {
     text-decoration: none;
     font-size: 18px;
@@ -431,7 +437,7 @@ th {
     text-align: center;
 }
 
-.itembtn>button {
+.itembtn button {
     background-color: white;
     color: #1F242D;
     border: none;
@@ -439,7 +445,7 @@ th {
     border-radius: 20px;
 }
 
-.itembtn>button:hover {
+.itembtn button:hover {
     cursor: pointer;
     background-color: aqua;
 }
@@ -556,6 +562,14 @@ th {
     margin: auto;
 }
 
+#form-response {
+    display: none;
+    font-size: 24px;
+    color: aqua;
+    font-weight: bold;
+    margin: 20px 2px;
+}
+
 .end>h3 {
     font-size: 18px;
     font-weight: 600;
@@ -647,7 +661,7 @@ th {
         display: block;
     }
 
-    .list:hover{
+    .list:hover {
         cursor: pointer;
     }
 

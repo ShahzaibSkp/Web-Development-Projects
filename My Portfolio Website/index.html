@@ -10,23 +10,23 @@
 
 <body>
     <header>
-        <div class="main">
+        <div id="home" class="main">
             <div class="background"></div>
             <nav class="front_nav">
                 <div class="left">
-                    <a href="">
+                    <a href="#home">
                         <img src="Assets/logo.svg" alt="logo">
                     </a>
                 </div>
                 <div class="right">
                     <ul>
                         <img class="list" src="Assets/list1.svg" alt="list">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Skills</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">Portfolio</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#service">Services</a></li>
+                        <li><a href="#home">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -78,7 +78,7 @@
 
 
     <main>
-        <section class="first">
+        <section id="about" class="first">
             <div class="first_heading">
                 <h1>About <span>Me</span></h1>
             </div>
@@ -151,7 +151,7 @@
         </section>
         <div class="line"></div>
 
-        <section class="Second">
+        <section id="skills" class="Second">
             <div class="first_heading">
                 <h1>My <span>Skills</span></h1>
             </div>
@@ -238,7 +238,7 @@
         </section>
         <div class="line"></div>
 
-        <section class="third">
+        <section id="service" class="third">
             <div class="first_heading">
                 <h1>My <span>Services</span></h1>
             </div>
@@ -259,7 +259,7 @@
                         </p>
                     </div>
                     <div class="itembtn">
-                        <button>Hire Me</button>
+                        <a href="mailto:shahzaibafzal772@gmail.com"><button>Hire Me</button></a>
                     </div>
                 </div>
 
@@ -279,7 +279,7 @@
                         </p>
                     </div>
                     <div class="itembtn">
-                        <button>Hire Me</button>
+                        <a href="mailto:shahzaibafzal772@gmail.com"><button>Hire Me</button></a>
                     </div>
                 </div>
 
@@ -299,7 +299,7 @@
                         </p>
                     </div>
                     <div class="itembtn">
-                        <button>Hire Me</button>
+                        <a href="mailto:shahzaibafzal772@gmail.com"><button>Hire Me</button></a>
                     </div>
                 </div>
             </div>
@@ -308,7 +308,7 @@
     </main>
 
     <footer>
-        <section class="First_Footer">
+        <section id="contact" class="First_Footer">
             <div class="first_heading">
                 <h1>Contact <span>Me</span></h1>
             </div>
@@ -341,21 +341,31 @@
                 </div>
 
                 <div class="right_Footer">
-                    <form class="form" method="post">
+                    <form class="form" id="contact-form" action="https://formsubmit.co/fdc13fd6d5ee46c0c256434e95f08e63"
+                        method="POST">
+                        <!-- Hidden input -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
                         <input class="form_item form_item1" type="text" name="FirstName" id="FirstName"
                             placeholder="First Name" required>
                         <input class="form_item form_item2" type="text" name="LastName" id="LastName"
                             placeholder="Last Name" required>
-                        <input class="form_item form_item3" type="text" name="Phone" id="Phone" placeholder="Phone"
-                            required>
+                        <input class="form_item form_item3" type="text" name="Phone" id="Phone"
+                            placeholder="Phone (optional)">
                         <input class="form_item form_item4" type="text" name="Subject" id="Subject"
                             placeholder="Subject">
                         <input class="form_item form_item5" type="Email" name="Email" id="Email" placeholder="Email"
                             required>
                         <textarea class="form_item form_item6" name="comment" rows="3" cols="45">Message
                         </textarea>
-                        <button class="form_item form_item7">Submit</button>
+                        <!-- submit button -->
+                        <button type="submit" class="form_item form_item7">Submit</button>
                     </form>
+                    <!-- Thank you message -->
+                    <div id="form-response">
+                        Thanks for contacting us. We will get back to you as soon as possible.
+                    </div>
                 </div>
             </div>
         </section>
@@ -366,6 +376,8 @@
             </div>
         </section>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
