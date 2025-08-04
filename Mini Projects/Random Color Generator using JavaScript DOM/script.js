@@ -4,7 +4,7 @@ function getRandomColor() {
     let Val1 = Math.floor(Math.random() * 256);
     let Val2 = Math.floor(Math.random() * 256);
     let Val3 = Math.floor(Math.random() * 256);
-    let Val4 = Math.floor(Math.random() * 11);
+    let Val4 = Math.random().toFixed(2);
     return `rgba(${Val1}, ${Val2}, ${Val3}, ${Val4})`;
 }
 
