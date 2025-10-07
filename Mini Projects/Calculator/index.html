@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #dfe0e0;
+        }
+
+        .heading{
+            font-size: 26px;
+        }
+
+        .container {
+            width: 320px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            gap: 18px;
+            background-color: white;
+            box-shadow: 1px 2px 12px 0px rgba(0, 0, 0, 0.555);
+            font-family: Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            font-family: Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .inputs input {
+            height: 36px;
+            width: 250px;
+            border: 1.2px solid rgb(180, 179, 179);
+            border-radius: 7px;
+            padding: 0px 8px;
+            box-sizing: border-box;
+        }
+
+        .btn>button {
+            padding: 6px 40px;
+            background-color: #C5B0CD;
+            border: 1px solid rgb(78, 78, 78);
+            border-radius: 4px;
+        }
+
+        .btn>button:hover {
+            cursor: pointer;
+            background-color: #d4c7da;
+        }
+
+        .output h4{
+            margin: 0px 32px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Calculator</h1>
+        <div class="inputs num1">
+            <label for="Number1">Enter Number 1: </label>
+            <input id="Number1" type="text">
+        </div>
+
+        <div class="inputs oper">
+            <label for="operation">Enter any operation(+,-,*,/): </label>
+            <input id="operation" type="text">
+        </div>
+
+        <div class="inputs num2">
+            <label for="Number2">Enter Number 2: </label>
+            <input id="Number2" type="text">
+        </div>
+
+        <div class="btn">
+            <button id="calculate">Calculate</button>
+        </div>
+
+        <div class="output">
+            <h4 id="output">Result: </h4>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
