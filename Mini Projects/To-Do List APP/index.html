@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 30%, #fbc2eb 60%, #a6c1ee 100%);
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            color: maroon;
+            text-shadow: 2px 2px 8px rgba(246, 158, 172, 0.817);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .task-input {
+            display: flex;
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 18px 70px 18px 12px;
+            line-height: 1.2;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .task-btn {
+            position: absolute;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            right: 6px;
+            top: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.18);
+        }
+
+        .task-btn:hover {
+            scale: 1.02;
+            transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms;
+            background-color: rgba(1, 1, 100, 0.893);
+        }
+
+        .task {
+            display: flex;
+            padding: 10px 12px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin: 8px 0px;
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            justify-content: space-between;
+            gap: 2px;
+        }
+
+        .task p {
+            color: #493461;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .task button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #ef4444;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.18);
+            transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms;
+        }
+
+        .task button:hover {
+            scale: 1.02;
+            background-color: #dc2626;
+            transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">My To-Do List</h1>
+
+        <div class="task-input">
+            <input type="text" name="add-task" id="add-task" placeholder="Add a new task...">
+            <button class="task-btn" type="submit">Add</button>
+        </div>
+
+        <div class="insert"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
