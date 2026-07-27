@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cont">
+        <h1>Create a Joke.</h1>
+        <button class="btn">Click! To create</button>
+    </div>
+    <script>
+        function makeJokes() {
+            let jokes = ["Shadi khana abadi nahi, darasal aik khamosh tabahi hai.", "Garmi itni hai ke ab macchar bhi khoon ki jagah sharbat mangte hain.", "Mobile unka kharab hota hai jinki ammi ke paas 'har fasad ki jarr' ka jawab hota hai.", "Internet chala gaya to thori der ghar walon ke sath betha, ache log hain bechare!", "Doctor ne kaha 'wazan kam karo', maine kaha 'pehle apna bill kam karo'", "Mashwara sab muft dete hain, bas rishwat ke paise lete hain.", "Nend aur kismat hamesha waqt par hi kharab hoti hain.", "Udhaar maang kar rishta kharab karne se behtar hai, seedha inkar kar do.", "Doosron ki khushi dekh kar khush hona seekhein, kyunke aapki apni to honay se rahi.", "Pappu ne exam sheet par likha: 'Sawal ghalat hain, mujhe pass kiya jaye!"];
+
+            let randomNum = Math.floor(Math.random() * 10);
+            return jokes[randomNum];
+        }
+
+        const paragraph = document.createElement("p");
+        document.querySelector(".cont").append(paragraph);
+
+        document.querySelector(".btn").addEventListener("click", () => {
+            document.querySelector("p").innerText = makeJokes();
+        })
+    </script>
+</body>
+
+</html>
