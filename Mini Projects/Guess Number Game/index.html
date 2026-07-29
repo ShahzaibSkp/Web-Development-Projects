@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 150px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #message {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        #reloadText>span {
+            cursor: pointer;
+            font-weight: bold;
+            color: rgb(47, 47, 252);
+            text-decoration: underline;
+        }
+
+        #reloadText>span:hover {
+            color: rgb(90, 90, 250);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Guess the Secret Number</h2>
+    <p>Try to guess the secret number from 1 to 100!</p>
+
+    <div class="input-group">
+        <input type="number" min="1" max="100" id="userInput" placeholder="Enter a number" />
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <div class="output-group">
+        <p id="attempts">Attempts: 0</p>
+        <p id="message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
