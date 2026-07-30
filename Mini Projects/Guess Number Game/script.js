@@ -5,12 +5,9 @@ let msg = document.getElementById("message");
 
 const rndNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
-let isFinished = false;
 
 submitBtn.addEventListener("click", () => {
     const userGuess = Number(inputValue.value);
-
-    if (isFinished) return;
 
     if (userGuess <= 0 || userGuess > 100 || userGuess == "") {
         msg.textContent = "⚠ Please Enter a valid Number!";
@@ -20,7 +17,7 @@ submitBtn.addEventListener("click", () => {
     }
 
     attempts++;
-    document.getElementById("attempts").textContent = `Attempts: ${attempts}`;
+    attemptCtn.textContent = `Attempts: ${attempts}`;
 
     if (userGuess === rndNumber) {
         msg.textContent = `Success 🎉! You guessed the correct number (${rndNumber}) in ${attempts} attempts!`;
