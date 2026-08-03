@@ -1,10 +1,10 @@
 // The Mirror Mirror: Imagine you have a string, and you need to create a new string that is a mirror image of the original. Write a function that appends the reversed version of the original string to itself.
 
 function reverseString(string) {
-    // 1st Aproach
+    // 1st Approach
     // const reversed = string.split('').reverse().join('');
 
-    // 2nd Aproach
+    // 2nd Approach
     let arr = string.split("");
     let newArr = [];
 
