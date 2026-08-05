@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-1: #f7f3e8;
+            --bg-2: #eef4ff;
+            --card: rgba(255, 255, 255, 0.82);
+            --card-border: rgba(35, 47, 67, 0.12);
+            --text: #1f2a37;
+            --muted: #5b6472;
+            --accent: #0f766e;
+            --accent-hover: #115e59;
+            --accent-soft: rgba(15, 118, 110, 0.12);
+            --shadow: 0 18px 50px rgba(31, 42, 55, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 32px 18px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(255, 210, 126, 0.35), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(78, 179, 221, 0.28), transparent 24%),
+                linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        }
+
+        .input,
+        .output {
+            width: min(100%, 560px);
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .input {
+            padding: 28px;
+            display: grid;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .input label {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        }
+
+        .input input {
+            width: 100%;
+            border: 1px solid rgba(91, 100, 114, 0.22);
+            border-radius: 14px;
+            padding: 14px 16px;
+            font: inherit;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.9);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .input input::placeholder {
+            color: #8a93a2;
+        }
+
+        .input input:focus {
+            border-color: rgba(15, 118, 110, 0.55);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+            transform: translateY(-1px);
+        }
+
+        .input button {
+            justify-self: start;
+            border: 0;
+            border-radius: 999px;
+            padding: 12px 20px;
+            font: inherit;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), #14b8a6);
+            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.25);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .input button:hover {
+            background: linear-gradient(135deg, var(--accent-hover), #0f9f8f);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(15, 118, 110, 0.3);
+        }
+
+        .input button:active {
+            transform: translateY(0);
+            box-shadow: 0 10px 18px rgba(15, 118, 110, 0.22);
+        }
+
+        .output {
+            padding: 24px 28px;
+            min-height: 92px;
+            display: grid;
+            align-content: center;
+        }
+
+        .note {
+            margin: 0;
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: rgba(15, 118, 110, 0.08);
+            color: #124e49;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        #added {
+            margin: 14px 0 0;
+            padding: 12px 14px;
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 20px 14px;
+            }
+
+            .input,
+            .output {
+                border-radius: 20px;
+            }
+
+            .input {
+                padding: 20px;
+            }
+
+            .output {
+                padding: 18px 20px;
+            }
+
+            .input button {
+                width: 100%;
+                justify-self: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- The Local Storage Manager: You are working on a note-taking app, and you want to implement a function named saveNoteToLocalStorage that takes a note object and saves it to the browser's local storage. -->
+    
+    <div class="input">
+        <label for="note">Enter your note here: </label> <br>
+        <input type="text" name="note" id="noteField">
+        <button>Add Note</button>
+    </div>
+
+    <div class="output">
+        <p class="note"></p>
+    </div>
+
+    <Script>
+        function saveNoteToLocalStorage(note) {
+            localStorage.setItem("Note", note);
+        }
+
+        document.querySelector("button").addEventListener("click", () => {
+            const noteValue = document.getElementById("noteField").value;
+            if (noteValue == '') {
+                return;
+            }
+        
+            saveNoteToLocalStorage(noteValue);
+            let addedTxt = document.createElement("p");
+            addedTxt.setAttribute("id", "added");
+            addedTxt.textContent = "Your note saved locally.";
+
+            document.querySelector(".output").appendChild(addedTxt);
+        })
+
+        let note = localStorage.getItem("Note");
+        if (note) {
+            document.querySelector(".note").textContent = `Locally stored note: ${note}`;
+        }
+    </Script>
+</body>
+
+</html>
