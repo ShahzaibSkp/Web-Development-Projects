@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Token Manager</title>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, sans-serif;
+            max-width: 780px;
+            margin: 24px
+        }
+
+        label {
+            display: block;
+            margin: 8px 0
+        }
+
+        input[type=text],
+        input[type=number] {
+            width: 320px;
+            padding: 6px
+        }
+
+        button {
+            margin-right: 8px
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 12px;
+            border: 1px solid #ddd
+        }
+    </style>
+</head>
+
+<body>
+    The Token Manager: You are developing a user authentication system, and you need to manage user authentication tokens. Implement a function named setAuthToken that takes an authentication token and sets it in localStorage with an expiration time.
+
+    <h1>Token Manager</h1>
+    <p>Set and retrieve a token stored in <strong>localStorage</strong> with an expiration.</p>
+
+    <label>Token
+        <input id="tokenInput" type="text" placeholder="Enter token value">
+    </label>
+
+    <label>Expires in (minutes)
+        <input id="expiresInput" type="number" value="60" min="1">
+    </label>
+
+    <div style="margin:12px 0">
+        <button id="setBtn">Set Token</button>
+        <button id="getBtn">Get Token</button>
+        <button id="clearBtn">Clear Token</button>
+    </div>
+
+    <strong>Output:</strong>
+    <pre id="output">(no output yet)</pre>
+
+    <script>
+        const storage = typeof localStorage !== 'undefined'
+            ? localStorage
+            : {
+                _data: {},
+                setItem(key, value) { this._data[key] = String(value); },
+                getItem(key) { return Object.prototype.hasOwnProperty.call(this._data, key) ? this._data[key] : null; },
+                removeItem(key) { delete this._data[key]; }
+            };
+
+        function setAuthToken(token, expiresInMinutes = 60) {
+            const expiresAt = Date.now() + (expiresInMinutes * 60 * 1000);
+            const tokenData = { token, expiresAt };
+            storage.setItem('authToken', JSON.stringify(tokenData));
+            return tokenData;
+        }
+
+        function getAuthToken() {
+            const storedToken = storage.getItem('authToken');
+            if (!storedToken) return null;
+            try {
+                const tokenData = JSON.parse(storedToken);
+                if (Date.now() > tokenData.expiresAt) {
+                    storage.removeItem('authToken');
+                    return null;
+                }
+                return tokenData.token;
+            } catch (e) {
+                storage.removeItem('authToken');
+                return null;
+            }
+        }
+
+        const out = document.getElementById('output');
+        function write(...args) { out.textContent = args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' '); }
+
+        document.getElementById('setBtn').addEventListener('click', () => {
+            const token = document.getElementById('tokenInput').value || 'sample-auth-token';
+            const mins = Number(document.getElementById('expiresInput').value) || 60;
+            const saved = setAuthToken(token, mins);
+            write('Saved token:', saved);
+        });
+
+        document.getElementById('getBtn').addEventListener('click', () => {
+            const token = getAuthToken();
+            write(token === null ? 'No valid token (expired or not set)' : `Token: ${token}`);
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            storage.removeItem('authToken');
+            write('Token cleared');
+        });
+
+        // show current token on load
+        window.addEventListener('load', () => {
+            const t = getAuthToken();
+            if (t) write('Current token:', t);
+        });
+    </script>
+</body>
+
+</html>
