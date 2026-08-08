@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Window Scroller</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--bg-1: #f7f3e8;
+			--bg-2: #eef4ff;
+			--bg-3: #fdfdfd;
+			--text: #1f2a37;
+			--muted: #5b6472;
+			--accent: #0f766e;
+			--accent-2: #14b8a6;
+			--card: rgba(255, 255, 255, 0.82);
+			--border: rgba(31, 42, 55, 0.12);
+			--shadow: 0 18px 50px rgba(31, 42, 55, 0.12);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			margin: 0;
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			color: var(--text);
+			background:
+				radial-gradient(circle at top left, rgba(255, 210, 126, 0.35), transparent 28%),
+				radial-gradient(circle at bottom right, rgba(78, 179, 221, 0.25), transparent 26%),
+				linear-gradient(135deg, var(--bg-1), var(--bg-2));
+		}
+
+		.hero,
+		.section,
+		.footer,
+		.topbar {
+			width: min(1120px, calc(100% - 32px));
+			margin: 16px auto;
+		}
+
+		.topbar {
+			position: sticky;
+			top: 16px;
+			z-index: 10;
+			padding: 16px 20px;
+			border: 1px solid var(--border);
+			border-radius: 18px;
+			background: rgba(255, 255, 255, 0.75);
+			backdrop-filter: blur(12px);
+			box-shadow: var(--shadow);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 16px;
+		}
+
+		.brand {
+			font-weight: 800;
+			letter-spacing: 0.03em;
+		}
+
+		.topbar button,
+		.scroll-button {
+			border: 0;
+			border-radius: 999px;
+			font: inherit;
+			font-weight: 700;
+			cursor: pointer;
+			transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+		}
+
+		.topbar button {
+			padding: 10px 16px;
+			color: white;
+			background: linear-gradient(135deg, var(--accent), var(--accent-2));
+			box-shadow: 0 10px 24px rgba(15, 118, 110, 0.25);
+		}
+
+		.topbar button:hover,
+		.scroll-button:hover {
+			transform: translateY(-2px);
+		}
+
+		.hero {
+			min-height: calc(100vh - 120px);
+			padding: 56px 36px;
+			border-radius: 28px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.8);
+			backdrop-filter: blur(12px);
+			box-shadow: var(--shadow);
+			display: grid;
+			align-content: center;
+			gap: 18px;
+		}
+
+		.hero h1 {
+			margin: 0;
+			font-size: clamp(2.4rem, 5vw, 4.5rem);
+			line-height: 1.02;
+		}
+
+		.hero p {
+			margin: 0;
+			max-width: 62ch;
+			font-size: 1.08rem;
+			line-height: 1.7;
+			color: var(--muted);
+		}
+
+		.hero-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			margin-top: 10px;
+		}
+
+		.hero-actions .primary {
+			padding: 14px 20px;
+			color: white;
+			background: linear-gradient(135deg, var(--accent), var(--accent-2));
+			box-shadow: 0 12px 24px rgba(15, 118, 110, 0.25);
+		}
+
+		.hero-actions .ghost {
+			padding: 14px 20px;
+			color: var(--text);
+			background: rgba(255, 255, 255, 0.88);
+			border: 1px solid var(--border);
+		}
+
+		.section {
+			padding: 28px;
+			border-radius: 24px;
+			border: 1px solid var(--border);
+			background: var(--card);
+			box-shadow: var(--shadow);
+		}
+
+		.section h2 {
+			margin: 0 0 12px;
+			font-size: 1.5rem;
+		}
+
+		.section p {
+			margin: 0;
+			line-height: 1.75;
+			color: var(--muted);
+		}
+
+		.cards {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 18px;
+			margin-top: 18px;
+		}
+
+		.card {
+			padding: 20px;
+			border-radius: 18px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px solid rgba(31, 42, 55, 0.08);
+		}
+
+		.card strong {
+			display: block;
+			margin-bottom: 8px;
+		}
+
+		.footer {
+			padding: 20px 4px 80px;
+			text-align: center;
+			color: var(--muted);
+		}
+
+		.scroll-button {
+			position: fixed;
+			right: 20px;
+			bottom: 20px;
+			padding: 14px 18px;
+			color: white;
+			background: linear-gradient(135deg, #1f7a72, #0f9f8f);
+			box-shadow: 0 16px 32px rgba(15, 118, 110, 0.28);
+		}
+
+		@media (max-width: 900px) {
+			.cards {
+				grid-template-columns: 1fr;
+			}
+
+			.hero {
+				padding: 36px 22px;
+			}
+
+			.topbar {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.hero,
+			.section,
+			.footer,
+			.topbar {
+				width: min(100%, calc(100% - 20px));
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.scroll-button {
+				right: 14px;
+				bottom: 14px;
+			}
+		}
+	</style>
+</head>
+<body>
+	The Window Scroller: You are developing a single-page application with a smooth scrolling effect. Implement a function named smoothScrollToTop that smoothly scrolls the window to the top when called.
+
+	<header class="topbar">
+		<div class="brand">Window Scroller</div>
+		<button type="button" onclick="smoothScrollToTop()">Back to top</button>
+	</header>
+
+	<main>
+		<section class="hero" id="top">
+			<h1>Smooth scroll back to the top.</h1>
+			<p>
+				This page gives you a simple single-page demo for the scrolling challenge.
+				Use the button below or the floating action button to animate the window
+				back to the top with a smooth transition.
+			</p>
+			<div class="hero-actions">
+				<button type="button" class="primary" onclick="smoothScrollToTop()">Scroll smoothly</button>
+				<button type="button" class="ghost" onclick="window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })">Jump to bottom</button>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2>Why this works</h2>
+			<p>
+				The function uses the browser's native smooth scrolling behavior, so the
+				animation feels natural and requires no extra library. The page is tall
+				enough to make the effect obvious.
+			</p>
+			<div class="cards">
+				<div class="card">
+					<strong>Native motion</strong>
+					Uses <span>window.scrollTo</span> with <span>behavior: smooth</span>.
+				</div>
+				<div class="card">
+					<strong>Simple trigger</strong>
+					A button calls the function and scrolls the page instantly into action.
+				</div>
+				<div class="card">
+					<strong>Browser-safe</strong>
+					The function no-ops if it is opened outside a browser environment.
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2>Extra scroll space</h2>
+			<p>
+				This section is here to create enough page height so you can test the
+				scrolling animation. The floating button remains visible while you move
+				through the content.
+			</p>
+		</section>
+
+		<section class="section">
+			<h2>More content</h2>
+			<p>
+				If you want, you can replace this demo content with your own sections,
+				articles, or cards. The scroll helper will still work the same way.
+			</p>
+		</section>
+
+		<section class="section">
+			<h2>Final note</h2>
+			<p>
+				Click the floating button on the bottom-right corner any time to return to
+				the top smoothly.
+			</p>
+		</section>
+
+		<footer class="footer">
+			Built for the Window Scroller problem.
+		</footer>
+	</main>
+
+	<button type="button" class="scroll-button" onclick="smoothScrollToTop()">Top</button>
+
+	<script>
+		function smoothScrollToTop() {
+			if (typeof window === "undefined" || typeof window.scrollTo !== "function") {
+				return;
+			}
+		
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+			});
+		}
+	</script>
+</body>
+</html>
