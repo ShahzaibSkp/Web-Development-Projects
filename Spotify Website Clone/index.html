@@ -45,8 +45,15 @@
     <main class="container flex">
         <aside class="side-bar bg-grey radius">
             <div class="sidebar-header flex items-center">
-                <h4>Your Library</h4>
+                <div class="library flex items-center">
+                    <img class="invert flex" src="images/playlist.svg" alt="playlist">
+                    <h4>Your Library</h4>
+                </div>
                 <div class="add"><img class="flex" src="images/plus.svg" alt="add"></div>
+            </div>
+
+            <div class="songsList">
+                <ul></ul>
             </div>
 
             <div class="sidebar-footer">
@@ -96,213 +103,23 @@
                         <h2>Barsaat</h2>
                         <p>Banjaare, Roni</p>
                     </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
+                </div>
+
+                <div class="playbar">
+                    <div class="seekBar">
+                        <div class="circle"></div>
                     </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
+
+                    <div class="songData flex items-center">
+                        <span class="songInfo"></span>
+
+                        <div class="songbutton flex justify-center items-center">
+                            <img id="previousSong" src="images/prevsong.svg" alt="previous song">
+                            <img id="playSong" src="images/play.svg" alt="play song">
+                            <img id="nextSong" src="images/nextsong.svg" alt="next song">
                         </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
-                    </div>
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
+
+                        <span class="songTime"></span>
                     </div>
                 </div>
             </div>
