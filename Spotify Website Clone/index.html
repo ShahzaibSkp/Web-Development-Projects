@@ -47,9 +47,9 @@
             <div class="sidebar-header flex items-center">
                 <div class="library flex items-center">
                     <img class="invert flex" src="images/playlist.svg" alt="playlist">
-                    <h4>Your Library</h4>
+                    <h4>Playlist Library</h4>
                 </div>
-                <div class="add"><img class="flex" src="images/plus.svg" alt="add"></div>
+                <div class="close"><img class="flex invert" src="images/close.svg" alt="add"></div>
             </div>
 
             <div class="songsList">
@@ -70,63 +70,47 @@
         </aside>
 
         <div class="main-content bg-grey radius">
-            <div class="playlist">
-                <div class="playlist-header items-center">
-                    <h1>Trending Songs</h1>
+            <div class="playlist-header items-center">
+                <div class="hamburger">
+                    <img width="30px" class="invert" src="images/hamburger.svg" alt="hamburger">
+                </div>
+                <h1>All Playlists</h1>
+            </div>
+
+            <div class="playlist flex items-center"></div>
+
+            <div class="playbar">
+                <div class="seekBar">
+                    <div class="circle"></div>
                 </div>
 
-                <div class="cardContainer flex items-center">
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
-                        </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
+                <div class="songData flex items-center">
+                    <span class="songInfo flex items-center"></span>
+
+                    <div class="songbutton flex justify-center items-center">
+                        <img width="30" id="previousSong" src="images/prevsong.svg" alt="previous song">
+                        <img width="30" id="playSong" src="images/play.svg" alt="play song">
+                        <img width="30" id="nextSong" src="images/nextsong.svg" alt="next song">
                     </div>
 
-                    <div class="card flex">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                                <circle cx="12" cy="12" r="12" fill="#1ed760" />
-                                <path
-                                    d="M9.5 8.75C9.5 8.29 10.02 8.01 10.42 8.26L15.35 11.51C15.72 11.75 15.72 12.25 15.35 12.49L10.42 15.74C10.02 15.99 9.5 15.71 9.5 15.25V8.75Z"
-                                    fill="#000000" />
-                            </svg>
+                    <div class="timeVol flex">
+                        <span class="songTime flex items-center"></span>
+
+                        <div class="volume flex justify-center items-center">
+                            <img class="flex" width="20" src="images/volume.svg" alt="volume">
+                            <input type="range" name="volume" id="range">
                         </div>
-                        <img src="images/cardImage.jfif" alt="card Image">
-                        <h2>Barsaat</h2>
-                        <p>Banjaare, Roni</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="playbar">
-                    <div class="seekBar">
-                        <div class="circle"></div>
-                    </div>
-
-                    <div class="songData flex items-center">
-                        <span class="songInfo"></span>
-
-                        <div class="songbutton flex justify-center items-center">
-                            <img id="previousSong" src="images/prevsong.svg" alt="previous song">
-                            <img id="playSong" src="images/play.svg" alt="play song">
-                            <img id="nextSong" src="images/nextsong.svg" alt="next song">
-                        </div>
-
-                        <span class="songTime"></span>
-                    </div>
-                </div>
+            <div class="main-footer flex justify-center items-center">
+                <p>Made with <span style="color: red;">❤</span> by Shahzaib</p>
             </div>
         </div>
     </main>
 
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
