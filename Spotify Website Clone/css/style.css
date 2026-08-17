@@ -304,7 +304,7 @@ body {
     flex: 1 1 auto;
     min-height: 0;
     margin: 2px 23px 8px 23px;
-    padding-bottom: clamp(90px, 9vw, 128px);
+    padding-bottom: clamp(75px, 9vw, 85px);
     gap: 6px;
     flex-wrap: wrap;
     justify-content: flex-start;
