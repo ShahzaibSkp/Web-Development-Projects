@@ -2,6 +2,7 @@ let currentSong = new Audio();
 let songs;
 let currFolder;
 let currentAlbumTitle = "";
+let currentAlbumArtist = "";
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -15,10 +16,11 @@ function secondsToMinutesSeconds(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-async function getSongs(folder, albumTitle = currentAlbumTitle) {
+async function getSongs(folder, albumTitle = currentAlbumTitle, artistName = currentAlbumArtist) {
     currFolder = folder;
     currentAlbumTitle = albumTitle;
-    let a = await fetch(`http://192.168.1.4:3000/${folder}/`);
+    currentAlbumArtist = artistName;
+    let a = await fetch(`http://192.168.1.9:3000/${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -49,7 +51,7 @@ async function getSongs(folder, albumTitle = currentAlbumTitle) {
                 <img class="invert flex" src="images/music.svg" alt="music">
                 <div class="songDetails flex justify-center">
                     <span>${song.replaceAll("%20", " ")}</span>
-                    <span>${currentAlbumTitle}</span>
+                    <span>${currentAlbumArtist || currentAlbumTitle}</span>
                 </div>
             </div>
             <div class="playNow flex items-center">
@@ -78,7 +80,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`http://192.168.1.4:3000/Songs/`);
+    let a = await fetch(`http://192.168.1.9:3000/Songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -90,12 +92,13 @@ async function displayAlbums() {
         const e = array[index];
         if (e.href.includes("%5CSongs%5C")) {
             let folder = decodeURIComponent(e.href.split("/").slice(-2)[0]).split("\\").pop();
-            let a = await fetch(`http://192.168.1.4:3000/Songs/${folder}/info.json`);
+            let a = await fetch(`http://192.168.1.9:3000/Songs/${folder}/info.json`);
             if (!a.ok) return;
             let response = await a.json();
             let encodedTitle = encodeURIComponent(response.title || "");
+            let encodedArtist = encodeURIComponent(response.artist || "");
             playlist.innerHTML = playlist.innerHTML +
-                `<div data-folder="${folder}" data-title="${encodedTitle}" class="card flex">
+                `<div data-folder="${folder}" data-title="${encodedTitle}" data-artist="${encodedArtist}" class="card flex">
                     <div class="play">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
                             <circle cx="12" cy="12" r="12" fill="#1ed760" />
@@ -113,7 +116,11 @@ async function displayAlbums() {
 
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            await getSongs(`Songs/${item.currentTarget.dataset.folder}`, decodeURIComponent(item.currentTarget.dataset.title || ""));
+            await getSongs(
+                `Songs/${item.currentTarget.dataset.folder}`,
+                decodeURIComponent(item.currentTarget.dataset.title || ""),
+                decodeURIComponent(item.currentTarget.dataset.artist || "")
+            );
             playMusic(songs[0], true);
         })
     })
@@ -124,7 +131,11 @@ async function main() {
     let firstCard = document.querySelector(".card");
 
     if (firstCard) {
-        await getSongs(`Songs/${firstCard.dataset.folder}`, decodeURIComponent(firstCard.dataset.title || ""));
+        await getSongs(
+            `Songs/${firstCard.dataset.folder}`,
+            decodeURIComponent(firstCard.dataset.title || ""),
+            decodeURIComponent(firstCard.dataset.artist || "")
+        );
         playMusic(songs[0], true);
     }
 
