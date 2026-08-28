@@ -12,7 +12,13 @@
     <header class="header">
         <input type="text" id="search" placeholder="Search for cities">
         <button class="search">
-            <svg width="20" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="e-10750-icon" viewBox="0 0 24 24" style="--encore-icon-height: var(--encore-graphic-size-decorative-base); --encore-icon-width: var(--encore-graphic-size-decorative-base);"><path d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"></path></svg>
+            <svg width="20" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true"
+                class="e-10750-icon" viewBox="0 0 24 24"
+                style="--encore-icon-height: var(--encore-graphic-size-decorative-base); --encore-icon-width: var(--encore-graphic-size-decorative-base);">
+                <path
+                    d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z">
+                </path>
+            </svg>
         </button>
         <button class="themeBtn">
             <svg class="dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -46,12 +52,65 @@
         </div>
 
         <div class="other-data">
-            <div class="heading">
-                <p>Air Condition</p>
+            <div class="data-heading">
+                <p>AIR CONDITIONS</p>
             </div>
 
-            <div class="weather-data">
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                            class="feelsLike-svg" viewBox="0 0 16 16">
+                            <path
+                                d="M8 1.5A2.5 2.5 0 0 0 5.5 4v5.1a3.5 3.5 0 1 0 5 0V4A2.5 2.5 0 0 0 8 1.5m0 1a1.5 1.5 0 0 1 1.5 1.5v5.55l.2.15a2.5 2.5 0 1 1-3.4 0l.2-.15V4A1.5 1.5 0 0 1 8 2.5m0 1a.5.5 0 0 0-.5.5v5.85l-.25.15a1.25 1.25 0 1 0 1.5 0l-.25-.15V4a.5.5 0 0 0-.5-.5" />
+                        </svg>
+                        <span>Real Feel</span>
+                    </div>
+                    <div class="metric-value" id="realFeel"></div>
+                </div>
 
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="wind-svg" viewBox="0 0 16 16">
+                            <path
+                                d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5m-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2M0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5" />
+                        </svg>
+                        <span>Wind Speed</span>
+                    </div>
+                    <div class="metric-value" id="windSpeed"></div>
+                </div>
+
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="moisture-svg" viewBox="0 0 16 16">
+                            <path
+                                d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a29 29 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a29 29 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001zm0 0-.364-.343zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267" />
+                        </svg>
+                        <span>Humidity</span>
+                    </div>
+                    <div class="metric-value" id="humidity"></div>
+                </div>
+
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"
+                            fill="currentColor" class="pressure-svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0-1.333A5.667 5.667 0 1 0 8 2.333a5.667 5.667 0 0 0 0 11.334z" />
+                            <path
+                                d="M8 5.667a.667.667 0 0 0-.667.667v3.512a1.333 1.333 0 1 0 1.334 0V6.333A.667.667 0 0 0 8 5.667z" />
+                            <circle cx="8" cy="3.667" r="0.667" />
+                            <circle cx="5.333" cy="5" r="0.667" />
+                            <circle cx="10.667" cy="5" r="0.667" />
+                            <circle cx="4" cy="7.667" r="0.667" />
+                            <circle cx="12" cy="7.667" r="0.667" />
+                        </svg>
+                        <span>Air Pressure</span>
+                    </div>
+                    <div class="metric-value" id="airPressure"></div>
+                </div>
             </div>
         </div>
     </main>

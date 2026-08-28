@@ -134,3 +134,41 @@ main {
     border-radius: 20px;
     height: 220px;
 }
+
+.data-heading {
+    padding: 18px 26px;
+}
+
+.data-heading>p {
+    font-size: 13px;
+    color: #8c8c8c;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px 10px 4px 42px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #939ba9;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.metric-value {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    padding-left: 32px;
+}

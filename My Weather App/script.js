@@ -87,6 +87,10 @@ async function getData() {
 		let country = document.querySelector(".city>p");
 		let tempPic = document.querySelector(".temp-pic>img");
 		let weatherDes = document.querySelector(".weather-description");
+		let feel = document.getElementById("realFeel");
+		let wind = document.getElementById("windSpeed");
+		let humidity = document.getElementById("humidity");
+		let pressure = document.getElementById("airPressure");
 
 		temp.innerHTML = `${Math.floor(result.main.temp)}<sup>&deg;C</sup>`;
 		resCity.innerHTML = result.name;
@@ -117,6 +121,11 @@ async function getData() {
 			tempPic.src = "images/snow.png";
 		}
 
+		feel.innerHTML = result.main.feels_like;
+		wind.innerHTML = result.wind.speed;
+		humidity.innerHTML = result.main.humidity;
+		pressure.innerHTML = result.main.pressure;
+		 
 		console.log(result);
 	} catch (error) {
 		alert("Unable to connect to the weather service.");
