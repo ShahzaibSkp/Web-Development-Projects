@@ -1,7 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+:root {
+    --bg-color: #0b131e;
+    --text-color: #ffffff;
+    --card-bg: #202b3b;
+    --icon-fill: #ffffff;
+}
+
+body.light-mode {
+    --bg-color: #f4f6f9;
+    --text-color: #101828;
+    --card-bg: #ffffff;
+    --icon-fill: #101828;
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--bg-color);
 }
 
 * {
@@ -18,6 +33,7 @@ body {
     align-items: center;
     border-radius: 12px;
     height: 46px;
+    background-color: var(--card-bg);
 }
 
 input {
@@ -29,6 +45,7 @@ input {
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
     font-size: 16px;
+    color: var(--text-color);
 }
 
 input:focus {
@@ -43,7 +60,10 @@ input:focus {
     height: 30px;
     border-radius: 40%;
     background-color: transparent;
-    border: 1px solid #818080;
+    border: 1px solid var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .themeBtn,
@@ -51,26 +71,25 @@ input:focus {
     cursor: pointer;
 }
 
+.themeBtn svg,
 .search>svg {
-    fill: white;
+    width: 18px;
+    height: 18px;
+    fill: var(--icon-fill);
 }
 
+.dark,
 .light {
-    padding: 4px;
+    display: block;
+    color: var(--icon-fill);
 }
 
-.dark {
+body:not(.light-mode) .dark {
     display: none;
 }
 
-.dark>path {
-    fill: black;
-}
-
-.light>path,
-.light>circle {
-    fill: white;
-    stroke: white;
+body.light-mode .light {
+    display: none;
 }
 
 main {
@@ -97,16 +116,31 @@ main {
     box-sizing: border-box;
 }
 
-.temp>sup {
-    font-size: 16px;
-}
-
 .weather-description {
     font-size: 13px;
     font-weight: 500;
     color: #8c8c8c;
     text-transform: capitalize;
     margin-top: 4px;
+}
+
+.city {
+    display: flex;
+    flex-direction: column;
+}
+
+.city>h1,
+.temp {
+    color: var(--text-color);
+}
+
+.city>p {
+    color: #8c8c8c;
+    font-size: 12px;
+}
+
+sup {
+    font-size: 16px;
 }
 
 .temp-pic {
@@ -119,17 +153,8 @@ main {
     object-fit: contain;
 }
 
-.city {
-    display: flex;
-    flex-direction: column;
-}
-
-.city>p {
-    color: #8c8c8c;
-    font-size: 12px;
-}
-
 .other-data {
+    background-color: var(--card-bg);
     width: 70vw;
     border-radius: 20px;
     height: 220px;
@@ -171,4 +196,68 @@ main {
     font-size: 26px;
     font-weight: 700;
     padding-left: 32px;
+}
+
+.sun-details {
+    width: 70vw;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sun-header {
+    padding: 18px 26px;
+}
+
+.sun-header>p {
+    font-size: 13px;
+    color: #8c8c8c;
+}
+
+.sun-schedule {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 44px;
+}
+
+.line {
+    height: 78px;
+    width: 1px;
+    background-color: #8c8c8c;
+}
+
+.sun-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.icon-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.details .label {
+    font-size: 13px;
+    color: #8fa0b5;
+    margin-bottom: 2px;
+}
+
+.details .time {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
 }

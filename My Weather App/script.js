@@ -1,6 +1,18 @@
 let city = "Lahore";
 let searchBtn = document.querySelector(".search");
 
+function formatLocalTime(dateObj) {
+	let hours = dateObj.getUTCHours();
+	const minutes = dateObj.getUTCMinutes().toString().padStart(2, '0');
+	const ampm = hours >= 12 ? 'PM' : 'AM';
+
+	hours = hours % 12;
+	hours = hours ? hours : 12;
+
+	return `${hours}:${minutes} ${ampm}`;
+}
+
+
 searchBtn.addEventListener("click", () => {
 	let inputValue = document.querySelector("#search").value.trim();
 
@@ -26,46 +38,10 @@ searchBtn.addEventListener("click", () => {
 const apiKey = "34d50117a87b22a36ca4a7a0e16a358a";
 const apiURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-let bodyColor = document.querySelector("body");
-let header = document.querySelector(".header")
 let themeBtn = document.querySelector(".themeBtn");
-let data = document.querySelector(".other-data");
-let input = document.querySelector("input");
-let searchSvg = document.querySelector(".search>svg")
-
-function lightTheme() {
-	bodyColor.style.backgroundColor = "#f0f4f9";
-	bodyColor.style.color = "#101828";
-	header.style.backgroundColor = "#ffffff";
-	data.style.backgroundColor = "#ffffff";
-	input.style.color = "#101828";
-	searchSvg.style.fill = "#101828"
-}
-
-function darkTheme() {
-	bodyColor.style.backgroundColor = "#0b131e";
-	bodyColor.style.color = "white";
-	header.style.backgroundColor = "#202b3b";
-	data.style.backgroundColor = "#202b3b";
-	input.style.color = "white";
-	searchSvg.style.fill = "white"
-}
-
-darkTheme();
-
-let isDarkTheme = true;
 
 themeBtn.addEventListener("click", () => {
-	if (isDarkTheme) {
-		lightTheme();
-		document.querySelector(".light").style.display = "none";
-		document.querySelector(".dark").style.display = "flex";
-	} else {
-		darkTheme();
-		document.querySelector(".dark").style.display = "none";
-		document.querySelector(".light").style.display = "flex";
-	}
-	isDarkTheme = !isDarkTheme;
+	document.body.classList.toggle('light-mode');
 })
 
 async function getData() {
@@ -91,8 +67,10 @@ async function getData() {
 		let wind = document.getElementById("windSpeed");
 		let humidity = document.getElementById("humidity");
 		let pressure = document.getElementById("airPressure");
+		let sunrise = document.getElementById("sunrise-time");
+		let sunset = document.getElementById("sunset-time");
 
-		temp.innerHTML = `${Math.floor(result.main.temp)}<sup>&deg;C</sup>`;
+		temp.innerHTML = `${Math.round(result.main.temp)}<sup>&deg;C</sup>`;
 		resCity.innerHTML = result.name;
 		country.textContent = `Country: ${result.sys.country}`;
 		weatherDes.textContent = result.weather[0].description;
@@ -121,12 +99,17 @@ async function getData() {
 			tempPic.src = "images/snow.png";
 		}
 
-		feel.innerHTML = result.main.feels_like;
-		wind.innerHTML = result.wind.speed;
-		humidity.innerHTML = result.main.humidity;
-		pressure.innerHTML = result.main.pressure;
-		 
-		console.log(result);
+		feel.innerHTML = `${Math.round(result.main.feels_like)}<sup>&deg;C</sup>`;
+		wind.innerHTML = Math.round(result.wind.speed * 3.6) + " km/h";
+		humidity.innerHTML = result.main.humidity + "%";
+		pressure.innerHTML = result.main.pressure + " mb";
+
+		const timezoneOffset = result.timezone;
+		const sunriseLocalTime = new Date((result.sys.sunrise + timezoneOffset) * 1000);
+		const sunsetLocalTime = new Date((result.sys.sunset + timezoneOffset) * 1000);
+
+		sunrise.innerHTML = formatLocalTime(sunriseLocalTime);
+		sunset.innerHTML = formatLocalTime(sunsetLocalTime);
 	} catch (error) {
 		alert("Unable to connect to the weather service.");
 		console.error(error);
