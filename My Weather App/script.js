@@ -12,7 +12,6 @@ function formatLocalTime(dateObj) {
 	return `${hours}:${minutes} ${ampm}`;
 }
 
-
 searchBtn.addEventListener("click", () => {
 	let inputValue = document.querySelector("#search").value.trim();
 

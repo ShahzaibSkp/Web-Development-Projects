@@ -3,15 +3,23 @@
 :root {
     --bg-color: #0b131e;
     --text-color: #ffffff;
+    --text-secondary: #94a3b8;
     --card-bg: #202b3b;
+    --card-shadow: none;
+    --icon-wrapper-bg: #2b384e;
     --icon-fill: #ffffff;
+    --icon-secondary: #94a3b8;
 }
 
 body.light-mode {
     --bg-color: #f4f6f9;
     --text-color: #101828;
+    --text-secondary: #64748b;
     --card-bg: #ffffff;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    --icon-wrapper-bg: #f1f5f9;
     --icon-fill: #101828;
+    --icon-secondary: #64748b;
 }
 
 body {
@@ -34,6 +42,8 @@ body {
     border-radius: 12px;
     height: 46px;
     background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input {
@@ -46,6 +56,10 @@ input {
     border-bottom-left-radius: inherit;
     font-size: 16px;
     color: var(--text-color);
+}
+
+input::placeholder {
+    color: var(--text-secondary);
 }
 
 input:focus {
@@ -119,7 +133,7 @@ main {
 .weather-description {
     font-size: 13px;
     font-weight: 500;
-    color: #8c8c8c;
+    color: var(--text-secondary);
     text-transform: capitalize;
     margin-top: 4px;
 }
@@ -135,7 +149,7 @@ main {
 }
 
 .city>p {
-    color: #8c8c8c;
+    color: var(--text-secondary);
     font-size: 12px;
 }
 
@@ -155,9 +169,11 @@ sup {
 
 .other-data {
     background-color: var(--card-bg);
-    width: 70vw;
+    width: 100%;
     border-radius: 20px;
     height: 220px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .data-heading {
@@ -166,7 +182,8 @@ sup {
 
 .data-heading>p {
     font-size: 13px;
-    color: #8c8c8c;
+    font-weight: 600;
+    color: var(--text-secondary);
 }
 
 .metrics-grid {
@@ -186,25 +203,27 @@ sup {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #939ba9;
+    color: var(--icon-secondary);
     font-size: 15px;
     font-weight: 500;
 }
 
 .metric-value {
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 26px;
     font-weight: 700;
     padding-left: 32px;
 }
 
 .sun-details {
-    width: 70vw;
+    width: 100%;
     background-color: var(--card-bg);
     border-radius: 20px;
     height: 150px;
     margin-top: 10px;
     margin-bottom: 10px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sun-header {
@@ -213,7 +232,8 @@ sup {
 
 .sun-header>p {
     font-size: 13px;
-    color: #8c8c8c;
+    font-weight: 600;
+    color: var(--text-secondary);
 }
 
 .sun-schedule {
@@ -226,7 +246,7 @@ sup {
 .line {
     height: 78px;
     width: 1px;
-    background-color: #8c8c8c;
+    background-color: var(--icon-secondary);
 }
 
 .sun-section {
@@ -237,7 +257,7 @@ sup {
 }
 
 .icon-wrapper {
-    background: rgba(255, 255, 255, 0.05);
+    background-color: var(--icon-wrapper-bg);
     padding: 10px;
     border-radius: 12px;
     display: flex;
@@ -252,12 +272,20 @@ sup {
 
 .details .label {
     font-size: 13px;
-    color: #8fa0b5;
+    color: var(--text-secondary);
     margin-bottom: 2px;
 }
 
 .details .time {
     font-size: 22px;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-color);
+}
+
+@media (max-width: 670px) {
+
+    .header,
+    main {
+        width: 95vw;
+    }
 }
