@@ -36,24 +36,35 @@ body {
     margin: 8px auto;
     width: 70vw;
     box-sizing: border-box;
-    display: flex;
-    gap: 6px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 46px;
+    gap: 10px;
     align-items: center;
-    border-radius: 12px;
     height: 46px;
+}
+
+.input-box,
+.theme-btn-wrapper {
+    height: 100%;
+    border-radius: 12px;
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
 input {
-    width: calc(100% - 78px);
-    padding: 4px 12px;
-    box-sizing: border-box;
+    width: 100%;
+    padding: 2px 0px 2px 13px;
     background-color: transparent;
     border: none;
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
     font-size: 16px;
     color: var(--text-color);
 }
@@ -68,16 +79,34 @@ input:focus {
     box-shadow: none;
 }
 
-.themeBtn,
 .search {
-    width: 30px;
-    height: 30px;
-    border-radius: 40%;
-    background-color: transparent;
-    border: 1px solid var(--text-color);
+    width: 42px;
+    height: 100%;
+    border: none;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 8px;
+}
+
+.theme-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.themeBtn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .themeBtn,
@@ -87,8 +116,8 @@ input:focus {
 
 .themeBtn svg,
 .search>svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     fill: var(--icon-fill);
 }
 
@@ -116,9 +145,10 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 4px 40px;
+    padding: 4px 40px;
     box-sizing: border-box;
     height: 210px;
+    width: 100%;
 }
 
 .temp-data {
@@ -287,5 +317,60 @@ sup {
     .header,
     main {
         width: 95vw;
+    }
+
+    .container {
+        padding: 4px 16px;
+    }
+
+    .temp-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .city>h1,
+    .temp {
+        font-size: 24px;
+    }
+
+    .data-heading {
+        padding: 18px;
+    }
+
+    .metrics-grid {
+        gap: 8px;
+        padding: 10px 10px 4px 14px;
+    }
+
+    .sun-header {
+        padding: 18px;
+    }
+
+    .sun-schedule {
+        padding: 0px 32px;
+        gap: 6px;
+    }
+
+    .sun-section {
+        gap: 8px;
+    }
+
+}
+
+@media (max-width: 440px) {
+    .sun-schedule {
+        padding: 0px 20px;
+    }
+
+    .metric-value {
+        font-size: 20px;
+    }
+
+    .metric-value>sup {
+        font-size: 14px;
+    }
+
+    .time {
+        font-size: 17px !important;
     }
 }

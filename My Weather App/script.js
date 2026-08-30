@@ -5,7 +5,6 @@ function formatLocalTime(dateObj) {
 	let hours = dateObj.getUTCHours();
 	const minutes = dateObj.getUTCMinutes().toString().padStart(2, '0');
 	const ampm = hours >= 12 ? 'PM' : 'AM';
-
 	hours = hours % 12;
 	hours = hours ? hours : 12;
 

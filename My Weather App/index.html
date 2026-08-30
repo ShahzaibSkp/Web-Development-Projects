@@ -10,25 +10,31 @@
 
 <body>
     <header class="header">
-        <input type="text" id="search" placeholder="Search for cities">
-        <button class="search">
-            <svg width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z">
-                </path>
-            </svg>
-        </button>
-        <button class="themeBtn">
-            <svg class="dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7.8 7.8 0 0 0 18.5 13.5 7.8 7.8 0 0 0 21 12.79z"></path>
-            </svg>
-            <svg class="light" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.64 5.64 4.22 4.22m15.56 15.56-1.42-1.42M18.36 5.64l1.42-1.42M4.22 19.78l1.42-1.42">
-                </path>
-                <circle cx="12" cy="12" r="4"></circle>
-            </svg>
-        </button>
+        <div class="input-box">
+            <input type="text" id="search" placeholder="Search for cities">
+            <button class="search" type="button" aria-label="Search weather">
+                <svg width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="theme-btn-wrapper">
+            <button class="themeBtn" type="button" aria-label="Toggle theme">
+                <svg class="dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7.8 7.8 0 0 0 18.5 13.5 7.8 7.8 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="light" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.64 5.64 4.22 4.22m15.56 15.56-1.42-1.42M18.36 5.64l1.42-1.42M4.22 19.78l1.42-1.42">
+                    </path>
+                    <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <main>
